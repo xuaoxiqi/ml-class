@@ -22,7 +22,7 @@ for iter = 1:num_iters
 
     h = X*theta;
     
-    for j=1:2
+    for j=1:size(X,2)
         tmp = 0;
         for i=1:m
             tmp = tmp+( h(i) -y(i) )*X(i,j);
