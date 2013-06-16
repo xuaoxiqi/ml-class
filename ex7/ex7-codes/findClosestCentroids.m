@@ -21,24 +21,17 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
 for i=1:size(X,1)
     
-%     distance0 = (X(i,1)-centroids(1,1))^2+(X(i,2)-centroids(1,2))^2;
-%     idx(i) = 1;
-%     
-%     for j=2:K
-%         distance1 = (X(i,1)-centroids(j,1))^2+(X(i,2)-centroids(j,2))^2;
-%         if (distance1<distance0) 
-%             idx(i) = j;
-%             distance0 = distance1;
-%         end
-%     end
-
-    distance = (X(i,1)-centroids(1:K,1)).^2+(X(i,2)-centroids(1:K,2)).^2;
+    distance = 0;
+    for n=1:size(X,2)
+        distance = distance+(X(i,n)-centroids(1:K,n)).^2; 
+    end
+    
     [minDistance,j] = min(distance);
+    
     idx(i) = j;
+    
 end
 
 % =============================================================

@@ -28,27 +28,10 @@ centroids = zeros(K, n);
 
 
  for j=1:K
-    count = 0;
-    sum1 = 0;
-    sum2 = 0;
-    
-    for i=1:size(X,1)      
-        if(idx(i)==j)
-            sum1 = X(i,1)+sum1;
-            sum2 = X(i,2)+sum2;
-            count = count+1;
-        end
-    end
 
-    centroids(j,1) = sum1/count;
-    centroids(j,2) = sum2/count;
-    
+    centroids(j,1:n) = mean(X(find(idx==j),1:n));
     
  end
- 
-
-
-
 
 
 % =============================================================
